@@ -30,11 +30,27 @@
 		vkBridge.send('VKWebAppCheckNativeAds', { ad_format: 'reward' })
 		  .then((data) => {
 			if (data.result) {	
+			
+			
 			  } else {
 				console.log('Рекламные материалы не найдены.');
 			  }
 		  })
 		  .catch((error) => { console.log(error); /* Ошибка */  });
+		  
+		getUserInfoVK();
+		
+		function getUserInfoVK() {
+		  bridge.send('VKWebAppGetUserInfo')
+			.then((data) => {
+			  // data содержит информацию о пользователе, включая user_id
+			  console.log(data.id);  // Здесь можно получить ID пользователя
+			  console.log(data);     // Вывод всей информации о пользователе
+			})
+			.catch((error) => {
+			  console.error(error);
+			});
+		}
 	</script>
     <script>
 
