@@ -49,7 +49,7 @@
 		
 		
 		function getUserInfoVK() {
-		  bridge.send('VKWebAppGetUserInfo')
+		  vkBridge.send('VKWebAppGetUserInfo')
 			.then((data) => {
 			  // data содержит информацию о пользователе, включая user_id
 			  console.log(data.id);  // Здесь можно получить ID пользователя
