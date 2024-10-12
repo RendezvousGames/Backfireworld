@@ -34,6 +34,7 @@
 		  .catch((error) => {
 			console.error('Ошибка при инициализации VK Bridge:', error);
 		  });
+	  
 		vkBridge.send('VKWebAppCheckNativeAds', { ad_format: 'interstitial'});
 		vkBridge.send('VKWebAppCheckNativeAds', { ad_format: 'reward' })
 		  .then((data) => {
