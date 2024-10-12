@@ -25,7 +25,7 @@
       </div>
     </div>
 		<script>
-		vkBridge.send("VKWebAppInit", {});
+		vkBridge.send("VKWebAppInit", { getUserInfoVK(); });
 		vkBridge.send('VKWebAppCheckNativeAds', { ad_format: 'interstitial'});
 		vkBridge.send('VKWebAppCheckNativeAds', { ad_format: 'reward' })
 		  .then((data) => {
@@ -38,7 +38,7 @@
 		  })
 		  .catch((error) => { console.log(error); /* Ошибка */  });
 		  
-		getUserInfoVK();
+		
 		
 		function getUserInfoVK() {
 		  bridge.send('VKWebAppGetUserInfo')
