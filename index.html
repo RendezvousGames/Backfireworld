@@ -25,7 +25,15 @@
       </div>
     </div>
 		<script>
-		vkBridge.send("VKWebAppInit", { getUserInfoVK(); });
+		// Инициализация VK Bridge
+		vkBridge.send("VKWebAppInit", {})
+		  .then(() => {
+			// Инициализация завершена, можно получать информацию о пользователе
+			getUserInfoVK();
+		  })
+		  .catch((error) => {
+			console.error('Ошибка при инициализации VK Bridge:', error);
+		  });
 		vkBridge.send('VKWebAppCheckNativeAds', { ad_format: 'interstitial'});
 		vkBridge.send('VKWebAppCheckNativeAds', { ad_format: 'reward' })
 		  .then((data) => {
